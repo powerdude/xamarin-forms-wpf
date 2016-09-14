@@ -67,14 +67,14 @@ namespace Xamarin.Forms.Platform.WPF.Controls
         private void Entry_LostFocus(object sender, RoutedEventArgs e)
         {
             if (Model != null)
-                Model.SendCompleted();
+                ((IEntryCellController)Model).SendCompleted();
         }
 
         private void Entry_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (Model != null && e.Key == System.Windows.Input.Key.Return)
             {
-                Model.SendCompleted();
+                ((IEntryCellController)Model).SendCompleted();
                 e.Handled = true;
             }
         }

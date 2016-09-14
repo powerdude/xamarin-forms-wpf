@@ -32,7 +32,7 @@ namespace Xamarin.Forms.Platform.WPF.Rendereres
         void Content_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (Model != null)
-                Model.SendClicked();
+                ((IButtonController)Model).SendClicked();
         }
 
         bool Handle_TextProperty(BindableProperty property)

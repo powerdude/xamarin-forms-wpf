@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -43,6 +44,38 @@
         public System.IO.Stream OpenFile(string path, FileMode mode, FileAccess access)
         {
             return file.OpenFile(path, (System.IO.FileMode)mode, (System.IO.FileAccess)access);
+        }
+
+        public Task CreateDirectoryAsync(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> GetDirectoryExistsAsync(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> GetFileExistsAsync(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DateTimeOffset> GetLastWriteTimeAsync(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Stream> OpenFileAsync(string path, Xamarin.Forms.FileMode mode, Xamarin.Forms.FileAccess access)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+      public  Task<Stream> OpenFileAsync(string path, Xamarin.Forms.FileMode mode, Xamarin.Forms.FileAccess access, Xamarin.Forms.FileShare share)
+        {
+            throw new NotImplementedException();
         }
     }
 }

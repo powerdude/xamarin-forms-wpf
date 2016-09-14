@@ -71,7 +71,7 @@ namespace Xamarin.Forms.Platform.WPF.Rendereres
             if (uriSource != null)
                 return await Device.PlatformServices.GetStreamAsync(uriSource.Uri, cancellation);
 
-            var streamSource = source as StreamImageSource;
+            var streamSource = source as IStreamImageSource;
             if (streamSource != null)
                 return await streamSource.GetStreamAsync(cancellation);
 
@@ -86,7 +86,7 @@ namespace Xamarin.Forms.Platform.WPF.Rendereres
             EventHandler loadCompleted = delegate { loadImageCompletion.TrySetResult(true); };
 
             System.Windows.Media.Imaging.BitmapImage bmi = null;
-            Model.IsLoading = true;
+            Model.SetValue(Image.IsLoadingPropertyKey, true);
             Content.Source = null;
 
             try
@@ -119,7 +119,7 @@ namespace Xamarin.Forms.Platform.WPF.Rendereres
                     bmi.DownloadCompleted -= loadCompleted;
                 }
             }
-            Model.IsLoading = false;
+            Model.SetValue(Image.IsLoadingPropertyKey,false);
         }
     }
 }

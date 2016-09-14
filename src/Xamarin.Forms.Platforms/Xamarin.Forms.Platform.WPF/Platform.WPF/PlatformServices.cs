@@ -9,6 +9,10 @@ using System.Windows;
 
 namespace Xamarin.Forms.Platform.WPF
 {
+    using Xamarin.Forms.Internals;
+
+    using Application = System.Windows.Application;
+
     class PlatformServices : IPlatformServices
     {
         HttpClient HttpClient = new HttpClient();
@@ -21,8 +25,8 @@ namespace Xamarin.Forms.Platform.WPF
             {
                 lock (this)
                 {
-                    if (_uiThread == null)
-                        Application.Current.Dispatcher.Invoke(delegate { _uiThread = Thread.CurrentThread; });
+                    if (_uiThread == null && Application.Current!= null && Application.Current.Dispatcher!=null)
+                       System.Windows. Application.Current.Dispatcher.Invoke(delegate { _uiThread = Thread.CurrentThread; });
                 }
 
                 return Thread.CurrentThread != _uiThread;
@@ -31,7 +35,17 @@ namespace Xamarin.Forms.Platform.WPF
 
         public void BeginInvokeOnMainThread(Action action)
         {
-            Application.Current.Dispatcher.BeginInvoke(action);
+                    if (Application.Current!= null && Application.Current.Dispatcher!=null)
+                System.Windows.Application.Current.Dispatcher.BeginInvoke(action);
+                    else
+                    {
+                        action();
+                    }
+        }
+
+        public Ticker CreateTicker()
+        {
+            throw new NotImplementedException();
         }
 
         public ITimer CreateTimer(Action<object> callback, object state, int dueTime, int period)
@@ -64,6 +78,16 @@ namespace Xamarin.Forms.Platform.WPF
             return AppDomain.CurrentDomain.GetAssemblies();
         }
 
+        public string GetMD5Hash(string input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetNamedSize(NamedSize size, Type targetElementType, bool useOldSizes)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Stream> GetStreamAsync(Uri uri, CancellationToken cancellationToken)
         {
             if (!uri.IsAbsoluteUri || (uri.IsAbsoluteUri && uri.Scheme == "pack"))
@@ -71,7 +95,7 @@ namespace Xamarin.Forms.Platform.WPF
                 // Build Action: Content, Copy Local: True
                 try
                 {
-                    var contentInfo = Application.GetContentStream(uri);
+                    var contentInfo = System.Windows.Application.GetContentStream(uri);
                     if (contentInfo != null)
                         return contentInfo.Stream;
                 }
@@ -80,7 +104,7 @@ namespace Xamarin.Forms.Platform.WPF
                 // Build Action: Resource
                 try
                 {
-                    var resourceInfo = Application.GetResourceStream(uri);
+                    var resourceInfo = System.Windows.Application.GetResourceStream(uri);
                     if (resourceInfo != null)
                         return resourceInfo.Stream;
                 }
@@ -89,7 +113,7 @@ namespace Xamarin.Forms.Platform.WPF
                 // Local file OR pack://siteoforigin:,,,/SiteOfOriginFile.ext
                 try
                 {
-                    var remoteInfo = Application.GetRemoteStream(uri);
+                    var remoteInfo = System.Windows.Application.GetRemoteStream(uri);
                     if (remoteInfo != null)
                         return remoteInfo.Stream;
                 }

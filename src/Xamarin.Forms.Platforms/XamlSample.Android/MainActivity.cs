@@ -1,26 +1,30 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
-using PortableForms;
+﻿using Android.App;
 
 namespace XamlSample.Android
 {
-    [Activity(Label = "XamlSample.Android", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : AndroidActivity
+    using PortableForms;
+    using Android.App;
+    using Android.Content.PM;
+    using Android.OS;
+
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.Android;
+
+    /// <summary>
+    /// The main activity.
+    /// </summary>
+    [Activity(Label = "XamlSample.Android", Icon = "@drawable/icon", MainLauncher = true,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
+    public class MainActivity : FormsApplicationActivity
     {
+
         protected override void OnCreate(Bundle bundle)
         {
-            Forms.Init(this, bundle);
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-            SetPage(App.GetMainPage());
+            Forms.Init(this, bundle);
+            this.LoadApplication(new App());
         }
     }
 }
