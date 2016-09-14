@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B3E7A6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlSample.Android", "XamlSample.Android\XamlSample.Android.csproj", "{67BF5DF6-36E8-43CD-BE23-6777B06633D5}"
 EndProject
-Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "NuGetPackage1", "NuGetPackage1\NuGetPackage1.nuproj", "{C9A2BF1C-9721-4600-8769-9018EF1675EE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.WPF.nuget", "NugetPackageProject.NuGet1\Xamarin.Forms.WPF.nuget.csproj", "{AEA3D3AD-56C4-4811-806B-DE563E248138}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NuGetPack", ".NuGetPack", "{F7D95F52-8C42-4AAF-9002-10FC1268FB14}"
@@ -56,10 +54,6 @@ Global
 		{67BF5DF6-36E8-43CD-BE23-6777B06633D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67BF5DF6-36E8-43CD-BE23-6777B06633D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67BF5DF6-36E8-43CD-BE23-6777B06633D5}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{C9A2BF1C-9721-4600-8769-9018EF1675EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9A2BF1C-9721-4600-8769-9018EF1675EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9A2BF1C-9721-4600-8769-9018EF1675EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9A2BF1C-9721-4600-8769-9018EF1675EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Release|Any CPU.ActiveCfg = Release|Any CPU

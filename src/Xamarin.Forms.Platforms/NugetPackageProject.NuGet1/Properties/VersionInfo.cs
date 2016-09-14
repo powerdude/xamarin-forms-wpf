@@ -4,7 +4,7 @@ using System.Reflection;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 #if DEBUG
-[assembly: AssemblyInformationalVersion("1.0.0-PreRelease")]
+[assembly: AssemblyInformationalVersion("1.0.0-pre2")]
 #else
 [assembly: AssemblyInformationalVersion("1.0.0")]
 #endif
